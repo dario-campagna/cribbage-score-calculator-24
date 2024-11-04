@@ -11,7 +11,7 @@ public class ParseCard {
     @Test
     void withSuiteSpades() {
         Card card = cardParser.parse("5♠");
-        assertEquals('B', card.suite());
+        assertEquals('♠', card.suite());
     }
 
     @Test
