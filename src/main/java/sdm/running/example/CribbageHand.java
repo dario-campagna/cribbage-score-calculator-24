@@ -29,6 +29,10 @@ public class CribbageHand {
         return 0;
     }
 
+    public int fifteenTwos() {
+        return 0;
+    }
+
     public int score() {
         return hasNobs() ? 1 : 0;
     }
