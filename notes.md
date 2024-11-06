@@ -43,7 +43,7 @@ Flush
 
 One for his nobs
 
-- 8♥J♣6♠K♣3♣ -> score is 1
+- ~~8♥J♣6♠K♣3♣ -> score is 1~~
 
 Fifteen-twos
 

@@ -1,6 +1,7 @@
 package sdm.running.example;
 
 import java.util.List;
+import java.util.Optional;
 
 public class CribbageHand {
     private final List<Card> handCards;
@@ -17,6 +18,19 @@ public class CribbageHand {
 
     public Card[] handCards() {
         return handCards.toArray(new Card[]{});
+    }
+
+    public boolean hasNobs() {
+        Card nobs = new Card('J', starterCard.suite());
+        return handCards.contains(nobs);
+    }
+
+    public int runsOfFour() {
+        return 0;
+    }
+
+    public int score() {
+        return hasNobs() ? 1 : 0;
     }
 
     @Override
