@@ -2,7 +2,6 @@ package sdm.running.example;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class CribbageHand {
     private final List<Card> handCards;
@@ -45,7 +44,7 @@ public class CribbageHand {
             }
         }
 
-        if (starterCard.suite().equals(firstCard.suite())){
+        if (starterCard.suite().equals(firstCard.suite())) {
             starterValue += 1;
         }
         return 4 + starterValue;
@@ -70,22 +69,27 @@ public class CribbageHand {
         return result;
     }
 
-    public int pairs() {
+    public int pointsForPairs() {
 
         List<Card> allCards = new ArrayList<>(handCards);
         allCards.add(starterCard);
         int numberOfPairs = 0;
 
-        for (int i = 0; i<allCards.size()-1; i++){
-            for (int j = i+1; j<allCards.size(); j++) {
+        numberOfPairs = getNumberOfPairs(allCards, numberOfPairs);
+
+        return numberOfPairs * 2;
+    }
+
+    private static int getNumberOfPairs(List<Card> allCards, int numberOfPairs) {
+        for (int i = 0; i < allCards.size() - 1; i++) {
+            for (int j = i + 1; j < allCards.size(); j++) {
                 char a = allCards.get(i).rank();
                 char b = allCards.get(j).rank();
-                if(a == b){
+                if (a == b) {
                     numberOfPairs++;
                 }
             }
         }
-
-        return numberOfPairs*2;
+        return numberOfPairs;
     }
 }

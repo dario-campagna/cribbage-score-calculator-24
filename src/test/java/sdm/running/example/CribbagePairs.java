@@ -1,6 +1,5 @@
 package sdm.running.example;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -20,7 +19,7 @@ public class CribbagePairs {
                 ),
         new Card('5', '♣')
         );
-        assertEquals(2, hand.pairs());
+        assertEquals(2, hand.pointsForPairs());
     }
 
     @Test
@@ -34,7 +33,7 @@ public class CribbagePairs {
                 ),
                 new Card('5', '♣')
         );
-        assertEquals(6, hand.pairs());
+        assertEquals(6, hand.pointsForPairs());
     }
 
     @Test
@@ -48,6 +47,6 @@ public class CribbagePairs {
                 ),
                 new Card('3', '♣')
         );
-        assertEquals(12, hand.pairs());
+        assertEquals(12, hand.pointsForPairs());
     }
 }
