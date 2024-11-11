@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class Flush {
 
     @Test
-    void flushWithDifferentStarter() {
+    void testFlushWithDifferentStarterCardSuite() {
         CribbageHand hand = new CribbageHand(
                 Arrays.asList(
                         new Card('0', '♥'),
@@ -20,11 +20,11 @@ public class Flush {
                 ),
                 new Card('9', '♦')
         );
-        assertEquals(4, hand.flush());
+        assertEquals(4, hand.score());
     }
 
     @Test
-    void flushWithSameStarter() {
+    void testFlushWithSameStarterCardSuite() {
         CribbageHand hand = new CribbageHand(
                 Arrays.asList(
                         new Card('0', '♥'),
@@ -34,6 +34,6 @@ public class Flush {
                 ),
                 new Card('9', '♥')
         );
-        assertEquals(5, hand.flush());
+        assertEquals(6, hand.score());
     }
 }
