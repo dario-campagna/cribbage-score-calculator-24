@@ -1,5 +1,6 @@
 package sdm.running.example;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -67,5 +68,24 @@ public class CribbageHand {
         int result = handCards.hashCode();
         result = 31 * result + starterCard.hashCode();
         return result;
+    }
+
+    public int pairs() {
+
+        List<Card> allCards = new ArrayList<>(handCards);
+        allCards.add(starterCard);
+        int numberOfPairs = 0;
+
+        for (int i = 0; i<allCards.size()-1; i++){
+            for (int j = i+1; j<allCards.size(); j++) {
+                char a = allCards.get(i).rank();
+                char b = allCards.get(j).rank();
+                if(a == b){
+                    numberOfPairs++;
+                }
+            }
+        }
+
+        return numberOfPairs*2;
     }
 }
