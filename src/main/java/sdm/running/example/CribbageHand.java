@@ -51,7 +51,13 @@ public class CribbageHand {
     }
 
     public int score() {
-        return hasNobs() ? 1 : 0;
+        int totalScore = 0;
+
+        int scoreForNobs = hasNobs() ? 1 : 0;
+        int scoreForFlush = flush();
+
+        totalScore = scoreForNobs + scoreForFlush;
+        return totalScore;
     }
 
     @Override
