@@ -33,6 +33,23 @@ public class CribbageHand {
         return 0;
     }
 
+    public int flush() {
+
+        Card firstCard = handCards.get(0);
+        int starterValue = 0;
+
+        for (Card currentCard : handCards) {
+            if (!currentCard.suite().equals(firstCard.suite())) {
+                return 0;
+            }
+        }
+
+        if (starterCard.suite().equals(firstCard.suite())){
+            starterValue += 1;
+        }
+        return 4 + starterValue;
+    }
+
     public int score() {
         return hasNobs() ? 1 : 0;
     }
