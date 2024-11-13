@@ -4,7 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Nobs {
 
@@ -12,12 +13,12 @@ public class Nobs {
     void inHand() {
         CribbageHand hand = new CribbageHand(
                 Arrays.asList(
-                        new Card('8', '♥'),
-                        new Card('J', '♣'),
-                        new Card('6', '♠'),
-                        new Card('K', '♣')
+                        new Card(Rank.EIGHT, '♥'),
+                        new Card(Rank.JACK, '♣'),
+                        new Card(Rank.SIX, '♠'),
+                        new Card(Rank.KING, '♣')
                 ),
-                new Card('3', '♣')
+                new Card(Rank.THREE, '♣')
         );
         assertTrue(hand.hasNobs());
     }
@@ -26,12 +27,12 @@ public class Nobs {
     void notInHand() {
         CribbageHand hand = new CribbageHand(
                 Arrays.asList(
-                        new Card('8', '♥'),
-                        new Card('J', '♥'),
-                        new Card('6', '♠'),
-                        new Card('K', '♣')
+                        new Card(Rank.EIGHT, '♥'),
+                        new Card(Rank.JACK, '♥'),
+                        new Card(Rank.SIX, '♠'),
+                        new Card(Rank.KING, '♣')
                 ),
-                new Card('3', '♣')
+                new Card(Rank.THREE, '♣')
         );
         assertFalse(hand.hasNobs());
     }

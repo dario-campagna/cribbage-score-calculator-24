@@ -14,12 +14,12 @@ public class RunsInHand {
     void oneRunOfFour() {
         CribbageHand hand = new CribbageHand(
                 Arrays.asList(
-                        new Card('0', '♦'),
-                        new Card('J', '♥'),
-                        new Card('Q', '♠'),
-                        new Card('A', '♣')
+                        new Card(Rank.TEN, '♦'),
+                        new Card(Rank.JACK, '♥'),
+                        new Card(Rank.QUEEN, '♠'),
+                        new Card(Rank.ACE,'♣')
                 ),
-                new Card('9', '♦')
+                new Card(Rank.NINE, '♦')
         );
         assertEquals(1, hand.runsOfFour());
     }

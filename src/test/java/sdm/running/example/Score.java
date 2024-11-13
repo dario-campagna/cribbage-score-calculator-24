@@ -12,12 +12,12 @@ public class Score {
     void oneForTheNobs() {
         CribbageHand hand = new CribbageHand(
                 Arrays.asList(
-                        new Card('8', '♥'),
-                        new Card('J', '♣'),
-                        new Card('6', '♠'),
-                        new Card('K', '♣')
+                        new Card(Rank.EIGHT, '♥'),
+                        new Card(Rank.JACK, '♣'),
+                        new Card(Rank.SIX,'♠'),
+                        new Card(Rank.KING, '♣')
                 ),
-                new Card('3', '♣')
+                new Card(Rank.THREE, '♣')
         );
         assertEquals(1, hand.score());
     }
@@ -26,12 +26,12 @@ public class Score {
     void zero() {
         CribbageHand hand = new CribbageHand(
                 Arrays.asList(
-                        new Card('8', '♥'),
-                        new Card('K', '♥'),
-                        new Card('J', '♠'),
-                        new Card('A', '♣')
+                        new Card(Rank.EIGHT, '♥'),
+                        new Card(Rank.KING, '♥'),
+                        new Card(Rank.JACK, '♠'),
+                        new Card(Rank.ACE, '♣')
                 ),
-                new Card('3', '♣')
+                new Card(Rank.THREE, '♣')
         );
         assertEquals(0, hand.score());
     }

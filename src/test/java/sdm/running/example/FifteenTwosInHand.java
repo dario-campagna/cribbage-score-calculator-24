@@ -1,6 +1,5 @@
 package sdm.running.example;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -13,10 +12,10 @@ public class FifteenTwosInHand {
     void oneCombinationOfThreeCards() {
         CribbageHand hand = new CribbageHand(
                 Arrays.asList(
-                        new Card('8', '♥'),
-                        new Card('J', '♣'),
-                        new Card('4', '♠'),
-                        new Card('K', '♣')
+                        new Card(Rank.EIGHT, '♥'),
+                        new Card(Rank.JACK, '♣'),
+                        new Card(Rank.FOUR, '♠'),
+                        new Card(Rank.KING, '♣')
                 ),
                 new Card('3', '♣')
         );
@@ -24,15 +23,15 @@ public class FifteenTwosInHand {
     }
 
     @Test
-    void threeCombinationOfThreeCards() {
+    void threeCombinationsOfThreeCards() {
         CribbageHand hand = new CribbageHand(
                 Arrays.asList(
-                        new Card('7', '♦'),
-                        new Card('3', '♦'),
-                        new Card('0', '♥'),
-                        new Card('5', '♣')
+                        new Card(Rank.SEVEN, '♦'),
+                        new Card(Rank.THREE, '♦'),
+                        new Card(Rank.TEN, '♥'),
+                        new Card(Rank.FIVE,'♣')
                 ),
-                new Card('3', '♥')
+                new Card(Rank.THREE, '♥')
         );
         assertEquals(3, hand.fifteenTwos());
     }

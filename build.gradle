@@ -1,9 +1,9 @@
 plugins {
-    id("java")
+    id 'java'
 }
 
-group = "sdm.running.example"
-version = "1.0-SNAPSHOT"
+group = 'sdm.running.example'
+version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -21,7 +21,7 @@ test {
 
 jar {
     manifest {
-        attributes["Main-Class"] = "sdm.running.example.Main"
+        attributes('Main-Class': 'sdm.running.example.Main')
     }
 }
 

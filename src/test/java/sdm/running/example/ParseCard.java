@@ -35,6 +35,6 @@ public class ParseCard {
     @Test
     void withRankFive() {
         Card card = cardParser.parse("5♦");
-        assertEquals('5', card.rank());
+        assertEquals(Rank.FIVE, card.rank());
     }
 }

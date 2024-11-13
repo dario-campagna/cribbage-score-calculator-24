@@ -1,6 +1,5 @@
 package sdm.running.example;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -13,12 +12,12 @@ public class Flush {
     void testFlushWithDifferentStarterCardSuite() {
         CribbageHand hand = new CribbageHand(
                 Arrays.asList(
-                        new Card('0', '♥'),
-                        new Card('J', '♥'),
-                        new Card('K', '♥'),
-                        new Card('A', '♥')
+                        new Card(Rank.TEN, '♥'),
+                        new Card(Rank.JACK, '♥'),
+                        new Card(Rank.KING, '♥'),
+                        new Card(Rank.ACE,'♥')
                 ),
-                new Card('9', '♦')
+                new Card(Rank.NINE, '♦')
         );
         assertEquals(4, hand.score());
     }
@@ -27,12 +26,12 @@ public class Flush {
     void testFlushWithSameStarterCardSuite() {
         CribbageHand hand = new CribbageHand(
                 Arrays.asList(
-                        new Card('0', '♥'),
-                        new Card('J', '♥'),
-                        new Card('K', '♥'),
-                        new Card('A', '♥')
+                        new Card(Rank.TEN, '♥'),
+                        new Card(Rank.JACK, '♥'),
+                        new Card(Rank.KING, '♥'),
+                        new Card(Rank.ACE,'♥')
                 ),
-                new Card('9', '♥')
+                new Card(Rank.NINE, '♥')
         );
         assertEquals(6, hand.score());
     }
