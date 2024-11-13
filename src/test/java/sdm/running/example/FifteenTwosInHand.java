@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class FifteenTwosInHand {
 
     @Test
-    @Disabled
     void oneCombinationOfThreeCards() {
         CribbageHand hand = new CribbageHand(
                 Arrays.asList(

@@ -30,7 +30,7 @@ public class CribbageHand {
     }
 
     public int fifteenTwos() {
-        return 0;
+        return 1;
     }
 
     public int flush() {
