@@ -1,5 +1,7 @@
 package sdm.running.example;
 
+import org.paukov.combinatorics3.Generator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,8 +31,17 @@ public class CribbageHand {
         return 0;
     }
 
-    public int fifteenTwos() {
-        return 1;
+    public long fifteenTwos() {
+        List<Card> allCards = new ArrayList<>(handCards);
+        allCards.add(starterCard);
+        return Generator.subset(allCards).simple().stream()
+                .filter(cardCombination -> 
+                        cardCombination.size() > 1 && totalFifteen(cardCombination))
+                .count();
+    }
+
+    private static boolean totalFifteen(List<Card> cardCombination) {
+        return cardCombination.stream().mapToInt(Card::value).sum() == 15;
     }
 
     public int flush() {

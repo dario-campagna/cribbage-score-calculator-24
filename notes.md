@@ -48,9 +48,9 @@ One for his nobs
 Fifteen-twos
 
 - 8♥J♣4♠K♣3♣ -> score is 2
-  - 8♥J♣4♠K♣3♣ -> 1 combination of two or more cards totalling exactly fifteen
+  - ~~8♥J♣4♠K♣3♣ -> 1 combination of two or more cards totalling exactly fifteen~~
 - 7♦3♦0♥5♣3♥ -> score is 6
-  - 7♦3♦0♥5♣3♥ -> 3 combination of two or more cards totalling exactly fifteen
+  - ~~7♦3♦0♥5♣3♥ -> 3 combination of two or more cards totalling exactly fifteen~~
 
 Runs
 

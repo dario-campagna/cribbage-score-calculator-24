@@ -22,4 +22,18 @@ public class FifteenTwosInHand {
         );
         assertEquals(1, hand.fifteenTwos());
     }
+
+    @Test
+    void threeCombinationOfThreeCards() {
+        CribbageHand hand = new CribbageHand(
+                Arrays.asList(
+                        new Card('7', '♦'),
+                        new Card('3', '♦'),
+                        new Card('0', '♥'),
+                        new Card('5', '♣')
+                ),
+                new Card('3', '♥')
+        );
+        assertEquals(3, hand.fifteenTwos());
+    }
 }

@@ -1,6 +1,21 @@
 package sdm.running.example;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Card {
+
+    private static final Map<Character, Integer> rankToValue = new HashMap<>(){{
+        put('3', 3);
+        put('4', 4);
+        put('5', 5);
+        put('7', 7);
+        put('8', 8);
+        put('0', 10);
+        put('J', 10);
+        put('K', 10);
+    }};
+    
     private final Character suite;
     private final Character rank;
 
@@ -15,6 +30,10 @@ public class Card {
 
     public Character rank() {
         return rank;
+    }
+
+    public int value() {
+        return rankToValue.get(rank);
     }
 
     @Override
