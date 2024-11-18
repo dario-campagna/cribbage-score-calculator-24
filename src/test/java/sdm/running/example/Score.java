@@ -59,8 +59,50 @@ public class Score {
                         new Card(Rank.TEN, '♥'),
                         new Card(Rank.FIVE,'♣')
                 ),
-                new Card(Rank.THREE, '♥')
+                new Card(Rank.TWO, '♥')
         );
         assertEquals(6, hand.score());
+    }
+
+    @Test
+    void twoForOnePair() {
+        CribbageHand hand = new CribbageHand(
+                Arrays.asList(
+                        new Card(Rank.EIGHT, '♥'),
+                        new Card(Rank.EIGHT, '♦'),
+                        new Card(Rank.FOUR, '♠'),
+                        new Card(Rank.ACE, '♣')
+                ),
+                new Card(Rank.FIVE, '♣')
+        );
+        assertEquals(2, hand.score());
+    }
+
+    @Test
+    void sixForThreePairs() {
+        CribbageHand hand = new CribbageHand(
+                Arrays.asList(
+                        new Card(Rank.TWO, '♥'),
+                        new Card(Rank.TWO, '♦'),
+                        new Card(Rank.TWO, '♠'),
+                        new Card(Rank.ACE, '♣')
+                ),
+                new Card(Rank.FIVE, '♣')
+        );
+        assertEquals(6, hand.score());
+    }
+
+    @Test
+    void twelveForSixPairs() {
+        CribbageHand hand = new CribbageHand(
+                Arrays.asList(
+                        new Card(Rank.THREE, '♥'),
+                        new Card(Rank.THREE, '♦'),
+                        new Card(Rank.THREE, '♠'),
+                        new Card(Rank.ACE, '♣')
+                ),
+                new Card(Rank.THREE, '♣')
+        );
+        assertEquals(12, hand.score());
     }
 }

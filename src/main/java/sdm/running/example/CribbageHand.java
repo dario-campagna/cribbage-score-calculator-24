@@ -64,10 +64,9 @@ public class CribbageHand {
 
     public long score() {
         int scoreForNobs = hasNobs() ? 1 : 0;
-        int scoreForFlush = flush();
         long scoreForFifteenTwos = 2 * fifteenTwos();
 
-        return scoreForNobs + scoreForFlush + scoreForFifteenTwos;
+        return scoreForNobs + flush() + scoreForFifteenTwos + pointsForPairs();
     }
 
     public int pointsForPairs() {
