@@ -38,8 +38,8 @@ Pairs
 
 Flush
 
-- 0♥J♥K♥A♥9♦ -> score is 4
-- 0♥J♥K♥A♥9♥ -> score is 5
+- ~~0♥J♥K♥A♥9♦ -> score is 4~~
+- ~~0♥J♥K♥A♥9♥ -> score is 5~~
 
 One for his nobs
 
@@ -47,9 +47,9 @@ One for his nobs
 
 Fifteen-twos
 
-- 8♥J♣4♠K♣3♣ -> score is 2
+- ~~8♥J♣4♠K♣3♣ -> score is 2~~
   - ~~8♥J♣4♠K♣3♣ -> 1 combination of two or more cards totalling exactly fifteen~~
-- 7♦3♦0♥5♣3♥ -> score is 6
+- ~~7♦3♦0♥5♣3♥ -> score is 6~~
   - ~~7♦3♦0♥5♣3♥ -> 3 combination of two or more cards totalling exactly fifteen~~
 
 Runs

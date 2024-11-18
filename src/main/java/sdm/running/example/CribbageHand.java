@@ -62,29 +62,12 @@ public class CribbageHand {
         return 4 + starterValue;
     }
 
-    public int score() {
-        int totalScore = 0;
-
+    public long score() {
         int scoreForNobs = hasNobs() ? 1 : 0;
         int scoreForFlush = flush();
+        long scoreForFifteenTwos = 2 * fifteenTwos();
 
-        totalScore = scoreForNobs + scoreForFlush;
-        return totalScore;
-    }
-
-    @Override
-    public final boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof CribbageHand that)) return false;
-
-        return handCards.equals(that.handCards) && starterCard.equals(that.starterCard);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = handCards.hashCode();
-        result = 31 * result + starterCard.hashCode();
-        return result;
+        return scoreForNobs + scoreForFlush + scoreForFifteenTwos;
     }
 
     public int pointsForPairs() {
@@ -109,5 +92,20 @@ public class CribbageHand {
             }
         }
         return numberOfPairs;
+    }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CribbageHand that)) return false;
+
+        return handCards.equals(that.handCards) && starterCard.equals(that.starterCard);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = handCards.hashCode();
+        result = 31 * result + starterCard.hashCode();
+        return result;
     }
 }

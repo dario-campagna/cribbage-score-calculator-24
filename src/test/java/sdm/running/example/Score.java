@@ -35,4 +35,32 @@ public class Score {
         );
         assertEquals(0, hand.score());
     }
+
+    @Test
+    void twoForOneFifteenTwos() {
+        CribbageHand hand = new CribbageHand(
+                Arrays.asList(
+                        new Card(Rank.EIGHT, '♥'),
+                        new Card(Rank.JACK, '♣'),
+                        new Card(Rank.FOUR, '♠'),
+                        new Card(Rank.KING, '♣')
+                ),
+                new Card(Rank.THREE, '♠')
+        );
+        assertEquals(2, hand.score());
+    }
+
+    @Test
+    void sixForThreeFifteenTwos() {
+        CribbageHand hand = new CribbageHand(
+                Arrays.asList(
+                        new Card(Rank.SEVEN, '♦'),
+                        new Card(Rank.THREE, '♦'),
+                        new Card(Rank.TEN, '♥'),
+                        new Card(Rank.FIVE,'♣')
+                ),
+                new Card(Rank.THREE, '♥')
+        );
+        assertEquals(6, hand.score());
+    }
 }
