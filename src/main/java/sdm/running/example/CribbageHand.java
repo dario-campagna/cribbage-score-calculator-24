@@ -4,7 +4,6 @@ import org.paukov.combinatorics3.Generator;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class CribbageHand {
     private final List<Card> handCards;
@@ -33,12 +32,17 @@ public class CribbageHand {
     }
 
     public long fifteenTwos() {
-        List<Card> allCards = new ArrayList<>(handCards);
-        allCards.add(starterCard);
+        List<Card> allCards = getAllCards();
         return Generator.subset(allCards).simple().stream()
                 .filter(
                         cardCombination -> cardCombination.size() > 1 && sumOf(cardCombination) == 15
                 ).count();
+    }
+
+    private List<Card> getAllCards() {
+        List<Card> allCards = new ArrayList<>(handCards);
+        allCards.add(starterCard);
+        return allCards;
     }
 
     private static int sumOf(List<Card> cardCombination) {
@@ -65,17 +69,13 @@ public class CribbageHand {
     public long score() {
         int scoreForNobs = hasNobs() ? 1 : 0;
         long scoreForFifteenTwos = 2 * fifteenTwos();
-
         return scoreForNobs + flush() + scoreForFifteenTwos + pointsForPairs();
     }
 
     public int pointsForPairs() {
-
-        List<Card> allCards = new ArrayList<>(handCards);
-        allCards.add(starterCard);
         int numberOfPairs = 0;
 
-        numberOfPairs = getNumberOfPairs(allCards, numberOfPairs);
+        numberOfPairs = getNumberOfPairs(getAllCards(), numberOfPairs);
 
         return numberOfPairs * 2;
     }

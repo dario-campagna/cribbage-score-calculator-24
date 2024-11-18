@@ -17,7 +17,7 @@
 
 - "5♥5♦5♠J♣5♣" -> print "29"
 - "0♦J♥Q♠A♣9♦" -> print "4"
-- 5♥5♦5♠J♣5♣ -> score is 29
+- ~~5♥5♦5♠J♣5♣ -> score is 29~~
 - ~~"5♥5♦5♠J♣5♣" -> four hand cards (five of Hearts,...) and a starter card (five of Clubs)~~
 - ~~"5♥5♦5♠J♣5♣" -> five of Clubs is the starter card~~
 - ~~"5♥5♦5♠J♣5♣" -> the hand cards are...~~
@@ -29,11 +29,11 @@
 
 Pairs
 
-- 8♥8♦4♠A♣5♣ -> score is 2
+- ~~8♥8♦4♠A♣5♣ -> score is 2~~
   - 8♥8♦4♠A♣5♣ -> one pair
-- 2♥2♦2♠A♣5♣ -> score is 6
+- ~~2♥2♦2♠A♣5♣ -> score is 6~~
   - 2♥2♦2♠A♣5♣ -> three pairs
-- 3♥3♦3♠A♣3♣ -> score is 12
+- ~~3♥3♦3♠A♣3♣ -> score is 12~~
   - 3♥3♦3♠A♣3♣ -> six pairs
 
 Flush

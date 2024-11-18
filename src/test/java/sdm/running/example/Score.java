@@ -105,4 +105,18 @@ public class Score {
         );
         assertEquals(12, hand.score());
     }
+
+    @Test
+    void twentyNineFor8FifteenTwos6PairsAndNobs() {
+        CribbageHand hand = new CribbageHand(
+                Arrays.asList(
+                        new Card(Rank.FIVE, '♥'),
+                        new Card(Rank.FIVE, '♦'),
+                        new Card(Rank.FIVE, '♠'),
+                        new Card(Rank.JACK, '♣')
+                ),
+                new Card(Rank.FIVE, '♣')
+        );
+        assertEquals(29, hand.score());
+    }
 }
