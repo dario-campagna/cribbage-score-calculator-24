@@ -13,7 +13,7 @@ public class Card {
         return suite;
     }
 
-    public Character rank() {
+    public Rank rank() {
         return rank;
     }
 

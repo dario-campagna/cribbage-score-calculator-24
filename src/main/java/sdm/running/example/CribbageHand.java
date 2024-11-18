@@ -24,7 +24,7 @@ public class CribbageHand {
     }
 
     public boolean hasNobs() {
-        Card nobs = new Card('J', starterCard.suite());
+        Card nobs = new Card(Rank.JACK, starterCard.suite());
         return handCards.contains(nobs);
     }
 
@@ -101,8 +101,8 @@ public class CribbageHand {
     private static int getNumberOfPairs(List<Card> allCards, int numberOfPairs) {
         for (int i = 0; i < allCards.size() - 1; i++) {
             for (int j = i + 1; j < allCards.size(); j++) {
-                char a = allCards.get(i).rank();
-                char b = allCards.get(j).rank();
+                Rank a = allCards.get(i).rank();
+                Rank b = allCards.get(j).rank();
                 if (a == b) {
                     numberOfPairs++;
                 }

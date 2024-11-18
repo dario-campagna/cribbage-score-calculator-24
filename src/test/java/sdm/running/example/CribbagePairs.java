@@ -12,12 +12,12 @@ public class CribbagePairs {
     void withOnePair() {
         CribbageHand hand = new CribbageHand(
                 Arrays.asList(
-                        new Card('8', '♥'),
-                        new Card('8', '♦'),
-                        new Card('4', '♠'),
-                        new Card('A', '♣')
+                        new Card(Rank.EIGHT, '♥'),
+                        new Card(Rank.EIGHT, '♦'),
+                        new Card(Rank.FOUR, '♠'),
+                        new Card(Rank.ACE, '♣')
                 ),
-        new Card('5', '♣')
+        new Card(Rank.FIVE, '♣')
         );
         assertEquals(2, hand.pointsForPairs());
     }
@@ -26,12 +26,12 @@ public class CribbagePairs {
     void withThreePairs() {
         CribbageHand hand = new CribbageHand(
                 Arrays.asList(
-                        new Card('2', '♥'),
-                        new Card('2', '♦'),
-                        new Card('2', '♠'),
-                        new Card('A', '♣')
+                        new Card(Rank.TWO, '♥'),
+                        new Card(Rank.TWO, '♦'),
+                        new Card(Rank.TWO, '♠'),
+                        new Card(Rank.ACE, '♣')
                 ),
-                new Card('5', '♣')
+                new Card(Rank.FIVE, '♣')
         );
         assertEquals(6, hand.pointsForPairs());
     }
@@ -40,12 +40,12 @@ public class CribbagePairs {
     void withSixPair() {
         CribbageHand hand = new CribbageHand(
                 Arrays.asList(
-                        new Card('3', '♥'),
-                        new Card('3', '♦'),
-                        new Card('3', '♠'),
-                        new Card('A', '♣')
+                        new Card(Rank.THREE, '♥'),
+                        new Card(Rank.THREE, '♦'),
+                        new Card(Rank.THREE, '♠'),
+                        new Card(Rank.ACE, '♣')
                 ),
-                new Card('3', '♣')
+                new Card(Rank.THREE, '♣')
         );
         assertEquals(12, hand.pointsForPairs());
     }

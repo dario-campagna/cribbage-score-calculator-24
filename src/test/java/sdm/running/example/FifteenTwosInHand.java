@@ -17,7 +17,7 @@ public class FifteenTwosInHand {
                         new Card(Rank.FOUR, '♠'),
                         new Card(Rank.KING, '♣')
                 ),
-                new Card('3', '♣')
+                new Card(Rank.THREE, '♣')
         );
         assertEquals(1, hand.fifteenTwos());
     }
