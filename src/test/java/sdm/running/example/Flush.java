@@ -4,12 +4,26 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class Flush {
 
     @Test
-    void testFlushWithDifferentStarterCardSuite() {
+    void notFlush() {
+        CribbageHand hand = new CribbageHand(
+                Arrays.asList(
+                        new Card(Rank.TEN, '♥'),
+                        new Card(Rank.JACK, '♦'),
+                        new Card(Rank.KING, '♥'),
+                        new Card(Rank.ACE,'♥')
+                ),
+                new Card(Rank.NINE, '♦')
+        );
+        assertFalse(hand.isFlush());
+    }
+
+    @Test
+    void flushWithDifferentStarterCardSuite() {
         CribbageHand hand = new CribbageHand(
                 Arrays.asList(
                         new Card(Rank.TEN, '♥'),
@@ -19,11 +33,11 @@ public class Flush {
                 ),
                 new Card(Rank.NINE, '♦')
         );
-        assertEquals(4, hand.score());
+        assertTrue(hand.isFlush());
     }
 
     @Test
-    void testFlushWithSameStarterCardSuite() {
+    void allSameSuite() {
         CribbageHand hand = new CribbageHand(
                 Arrays.asList(
                         new Card(Rank.TEN, '♥'),
@@ -33,6 +47,6 @@ public class Flush {
                 ),
                 new Card(Rank.NINE, '♥')
         );
-        assertEquals(6, hand.score());
+        assertTrue(hand.hasCardsOfSameSuite());
     }
 }

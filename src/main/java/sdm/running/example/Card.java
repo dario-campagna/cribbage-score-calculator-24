@@ -40,4 +40,8 @@ public class Card {
     public String toString() {
         return "" + rank + suite;
     }
+
+    public boolean hasSameSuiteOf(Card otherCard) {
+        return this.suite.equals(otherCard.suite);
+    }
 }

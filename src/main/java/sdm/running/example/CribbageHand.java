@@ -49,27 +49,11 @@ public class CribbageHand {
         return cardCombination.stream().mapToInt(Card::value).sum();
     }
 
-    public int flush() {
-
-        Card firstCard = handCards.get(0);
-        int starterValue = 0;
-
-        for (Card currentCard : handCards) {
-            if (!currentCard.suite().equals(firstCard.suite())) {
-                return 0;
-            }
-        }
-
-        if (starterCard.suite().equals(firstCard.suite())){
-            starterValue += 1;
-        }
-        return 4 + starterValue;
-    }
-
     public long score() {
         int scoreForNobs = hasNobs() ? 1 : 0;
         long scoreForFifteenTwos = 2 * fifteenTwos();
-        return scoreForNobs + flush() + scoreForFifteenTwos + pointsForPairs();
+        int scoreForFlush = isFlush() ? 4 + (hasCardsOfSameSuite() ? 1 : 0) : 0;
+        return scoreForNobs + scoreForFlush +  scoreForFifteenTwos + pointsForPairs();
     }
 
     public int pointsForPairs() {
@@ -106,5 +90,14 @@ public class CribbageHand {
         int result = handCards.hashCode();
         result = 31 * result + starterCard.hashCode();
         return result;
+    }
+
+    public boolean isFlush() {
+        return handCards.stream().allMatch(card -> card.hasSameSuiteOf(handCards.get(0)));
+    }
+
+    public boolean hasCardsOfSameSuite() {
+        List<Card> allCards = getAllCards();
+        return allCards.stream().allMatch(card -> card.hasSameSuiteOf(allCards.get(0)));
     }
 }
