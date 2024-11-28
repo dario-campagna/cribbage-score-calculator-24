@@ -44,4 +44,8 @@ public class Card {
     public boolean hasSameSuiteOf(Card otherCard) {
         return this.suite.equals(otherCard.suite);
     }
+
+    public boolean hasSameRankOf(Card otherCard) {
+        return this.rank.equals(otherCard.rank);
+    }
 }

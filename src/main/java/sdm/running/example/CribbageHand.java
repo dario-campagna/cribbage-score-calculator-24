@@ -39,12 +39,6 @@ public class CribbageHand {
                 ).count();
     }
 
-    private List<Card> getAllCards() {
-        List<Card> allCards = new ArrayList<>(handCards);
-        allCards.add(starterCard);
-        return allCards;
-    }
-
     private static int sumOf(List<Card> cardCombination) {
         return cardCombination.stream().mapToInt(Card::value).sum();
     }
@@ -53,28 +47,30 @@ public class CribbageHand {
         int scoreForNobs = hasNobs() ? 1 : 0;
         long scoreForFifteenTwos = 2 * fifteenTwos();
         int scoreForFlush = isFlush() ? 4 + (hasCardsOfSameSuite() ? 1 : 0) : 0;
-        return scoreForNobs + scoreForFlush +  scoreForFifteenTwos + pointsForPairs();
+        long scoreForPairs = 2 * getNumberOfPairs();
+        return scoreForNobs + scoreForFlush +  scoreForFifteenTwos + scoreForPairs;
     }
 
-    public int pointsForPairs() {
-        int numberOfPairs = 0;
-
-        numberOfPairs = getNumberOfPairs(getAllCards(), numberOfPairs);
-
-        return numberOfPairs * 2;
+    public long getNumberOfPairs() {
+        List<Card> allCards = getAllCards();
+        return Generator.combination(allCards).simple(2).stream().filter(
+                cards -> cards.get(0).hasSameRankOf(cards.get(1))
+        ).count();
     }
 
-    private static int getNumberOfPairs(List<Card> allCards, int numberOfPairs) {
-        for (int i = 0; i < allCards.size() - 1; i++) {
-            for (int j = i + 1; j < allCards.size(); j++) {
-                Rank a = allCards.get(i).rank();
-                Rank b = allCards.get(j).rank();
-                if (a == b) {
-                    numberOfPairs++;
-                }
-            }
-        }
-        return numberOfPairs;
+    public boolean isFlush() {
+        return handCards.stream().allMatch(card -> card.hasSameSuiteOf(handCards.get(0)));
+    }
+
+    public boolean hasCardsOfSameSuite() {
+        List<Card> allCards = getAllCards();
+        return allCards.stream().allMatch(card -> card.hasSameSuiteOf(allCards.get(0)));
+    }
+
+    private List<Card> getAllCards() {
+        List<Card> allCards = new ArrayList<>(handCards);
+        allCards.add(starterCard);
+        return allCards;
     }
 
     @Override
@@ -90,14 +86,5 @@ public class CribbageHand {
         int result = handCards.hashCode();
         result = 31 * result + starterCard.hashCode();
         return result;
-    }
-
-    public boolean isFlush() {
-        return handCards.stream().allMatch(card -> card.hasSameSuiteOf(handCards.get(0)));
-    }
-
-    public boolean hasCardsOfSameSuite() {
-        List<Card> allCards = getAllCards();
-        return allCards.stream().allMatch(card -> card.hasSameSuiteOf(allCards.get(0)));
     }
 }
