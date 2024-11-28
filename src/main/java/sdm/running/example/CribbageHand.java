@@ -25,8 +25,8 @@ public class CribbageHand {
     }
 
     public boolean hasNobs() {
-        Card nobs = new Card(Rank.JACK, starterCard.suite());
-        return handCards.contains(nobs);
+        Card jack = new Card(Rank.JACK, '♠');
+        return handCards.stream().anyMatch(card -> card.hasSameRankAs(jack) && card.hasSameSuiteAs(starterCard));
     }
 
     public int runsOfFour() {
@@ -48,17 +48,17 @@ public class CribbageHand {
     public long getNumberOfPairs() {
         List<Card> allCards = getAllCards();
         return Generator.combination(allCards).simple(2).stream().filter(
-                cards -> cards.get(0).hasSameRankOf(cards.get(1))
+                cards -> cards.get(0).hasSameRankAs(cards.get(1))
         ).count();
     }
 
     public boolean isFlush() {
-        return handCards.stream().allMatch(card -> card.hasSameSuiteOf(handCards.get(0)));
+        return handCards.stream().allMatch(card -> card.hasSameSuiteAs(handCards.get(0)));
     }
 
     public boolean hasCardsOfSameSuite() {
         List<Card> allCards = getAllCards();
-        return allCards.stream().allMatch(card -> card.hasSameSuiteOf(allCards.get(0)));
+        return allCards.stream().allMatch(card -> card.hasSameSuiteAs(allCards.get(0)));
     }
 
     private List<Card> getAllCards() {

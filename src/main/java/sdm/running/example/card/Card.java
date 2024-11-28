@@ -9,16 +9,16 @@ public class Card {
         this.suite = suite;
     }
 
-    public Character suite() {
-        return suite;
-    }
-
-    public Rank rank() {
-        return rank;
-    }
-
     public Integer value() {
         return rank.value();
+    }
+
+    public boolean hasSameRankAs(Card otherCard) {
+        return this.rank.equals(otherCard.rank);
+    }
+
+    public boolean hasSameSuiteAs(Card otherCard) {
+        return this.suite.equals(otherCard.suite);
     }
 
     @Override
@@ -39,13 +39,5 @@ public class Card {
     @Override
     public String toString() {
         return "" + rank + suite;
-    }
-
-    public boolean hasSameSuiteOf(Card otherCard) {
-        return this.suite.equals(otherCard.suite);
-    }
-
-    public boolean hasSameRankOf(Card otherCard) {
-        return this.rank.equals(otherCard.rank);
     }
 }

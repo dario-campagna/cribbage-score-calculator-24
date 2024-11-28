@@ -5,7 +5,7 @@ import sdm.running.example.card.Card;
 import sdm.running.example.card.Rank;
 import sdm.running.example.parse.CardParser;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ParseCard {
 
@@ -14,30 +14,30 @@ public class ParseCard {
     @Test
     void withSuiteSpades() {
         Card card = cardParser.parse("5♠");
-        assertEquals('♠', card.suite());
+        assertTrue(card.hasSameSuiteAs(new Card(Rank.EIGHT, '♠')));
     }
 
     @Test
     void withSuiteHearts() {
         Card card = cardParser.parse("5♥");
-        assertEquals('♥', card.suite());
+        assertTrue(card.hasSameSuiteAs(new Card(Rank.TEN, '♥')));
     }
 
     @Test
     void withSuiteClubs() {
         Card card = cardParser.parse("5♣");
-        assertEquals('♣', card.suite());
+        assertTrue(card.hasSameSuiteAs(new Card(Rank.SEVEN, '♣')));
     }
 
     @Test
     void withSuiteDiamonds() {
         Card card = cardParser.parse("5♦");
-        assertEquals('♦', card.suite());
+        assertTrue(card.hasSameSuiteAs(new Card(Rank.TWO, '♦')));
     }
 
     @Test
     void withRankFive() {
         Card card = cardParser.parse("5♦");
-        assertEquals(Rank.FIVE, card.rank());
+        assertTrue(card.hasSameRankAs(new Card(Rank.FIVE, '♣')));
     }
 }

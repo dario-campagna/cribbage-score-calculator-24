@@ -7,7 +7,7 @@
   - Combination of cards
 - Parse a Cribbage hand represented as a string
     - Each rank corresponds to a numeric value
-    - Well defined set of values for rank and suite
+    - Well-defined set of values for rank and suite
 
 # Notes
 
@@ -30,11 +30,11 @@
 Pairs
 
 - ~~8♥8♦4♠A♣5♣ -> score is 2~~
-  - 8♥8♦4♠A♣5♣ -> one pair
+  - ~~8♥8♦4♠A♣5♣ -> one pair~~
 - ~~2♥2♦2♠A♣5♣ -> score is 6~~
-  - 2♥2♦2♠A♣5♣ -> three pairs
+  - ~~2♥2♦2♠A♣5♣ -> three pairs~~
 - ~~3♥3♦3♠A♣3♣ -> score is 12~~
-  - 3♥3♦3♠A♣3♣ -> six pairs
+  - ~~3♥3♦3♠A♣3♣ -> six pairs~~
 
 Flush
 
