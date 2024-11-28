@@ -43,14 +43,6 @@ public class CribbageHand {
         return cardCombination.stream().mapToInt(Card::value).sum();
     }
 
-    public long score() {
-        int scoreForNobs = hasNobs() ? 1 : 0;
-        long scoreForFifteenTwos = 2 * fifteenTwos();
-        int scoreForFlush = isFlush() ? 4 + (hasCardsOfSameSuite() ? 1 : 0) : 0;
-        long scoreForPairs = 2 * getNumberOfPairs();
-        return scoreForNobs + scoreForFlush +  scoreForFifteenTwos + scoreForPairs;
-    }
-
     public long getNumberOfPairs() {
         List<Card> allCards = getAllCards();
         return Generator.combination(allCards).simple(2).stream().filter(

@@ -8,6 +8,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Score {
 
+    private final CribbageScore cribbageScore = new CribbageScore();
+
     @Test
     void oneForTheNobs() {
         CribbageHand hand = new CribbageHand(
@@ -19,7 +21,7 @@ public class Score {
                 ),
                 new Card(Rank.THREE, '♣')
         );
-        assertEquals(1, hand.score());
+        assertEquals(1, cribbageScore.of(hand));
     }
 
     @Test
@@ -33,7 +35,7 @@ public class Score {
                 ),
                 new Card(Rank.THREE, '♣')
         );
-        assertEquals(0, hand.score());
+        assertEquals(0, cribbageScore.of(hand));
     }
 
     @Test
@@ -47,7 +49,7 @@ public class Score {
                 ),
                 new Card(Rank.THREE, '♠')
         );
-        assertEquals(2, hand.score());
+        assertEquals(2, cribbageScore.of(hand));
     }
 
     @Test
@@ -61,7 +63,7 @@ public class Score {
                 ),
                 new Card(Rank.TWO, '♥')
         );
-        assertEquals(6, hand.score());
+        assertEquals(6, cribbageScore.of(hand));
     }
 
     @Test
@@ -75,7 +77,7 @@ public class Score {
                 ),
                 new Card(Rank.FIVE, '♣')
         );
-        assertEquals(2, hand.score());
+        assertEquals(2, cribbageScore.of(hand));
     }
 
     @Test
@@ -89,7 +91,7 @@ public class Score {
                 ),
                 new Card(Rank.FIVE, '♣')
         );
-        assertEquals(6, hand.score());
+        assertEquals(6, cribbageScore.of(hand));
     }
 
     @Test
@@ -103,7 +105,7 @@ public class Score {
                 ),
                 new Card(Rank.THREE, '♣')
         );
-        assertEquals(12, hand.score());
+        assertEquals(12, cribbageScore.of(hand));
     }
 
     @Test
@@ -117,6 +119,6 @@ public class Score {
                 ),
                 new Card(Rank.FIVE, '♣')
         );
-        assertEquals(29, hand.score());
+        assertEquals(29, cribbageScore.of(hand));
     }
 }
