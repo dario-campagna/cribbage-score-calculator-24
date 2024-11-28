@@ -16,14 +16,6 @@ public class CribbageHand {
         this.starterCard = starterCard;
     }
 
-    public Card starterCard() {
-        return starterCard;
-    }
-
-    public Card[] handCards() {
-        return handCards.toArray(new Card[]{});
-    }
-
     public boolean hasNobs() {
         Card jack = new Card(Rank.JACK, '♠');
         return handCards.stream().anyMatch(card -> card.hasSameRankAs(jack) && card.hasSameSuiteAs(starterCard));

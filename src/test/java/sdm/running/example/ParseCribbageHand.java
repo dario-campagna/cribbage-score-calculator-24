@@ -6,6 +6,7 @@ import sdm.running.example.card.Rank;
 import sdm.running.example.parse.CribbageHandParser;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,44 +16,33 @@ public class ParseCribbageHand {
     private final CribbageHandParser cribbageHandParser = new CribbageHandParser();
 
     @Test
-    void withStarterCardFiveOfClubs() {
-        CribbageHand cribbageHand = cribbageHandParser.parse("5♥5♦5♠J♣5♣");
-        assertEquals(new Card(Rank.FIVE, '♣'), cribbageHand.starterCard());
-    }
-
-    @Test
-    void withStarterCardAceOfSpades() {
-        CribbageHand cribbageHand = cribbageHandParser.parse("5♥5♦5♠J♣A♠");
-        assertEquals(new Card(Rank.ACE, '♠'), cribbageHand.starterCard());
-    }
-
-    @Test
-    void withHandCardsFiveOfEachSuite() {
-        CribbageHand cribbageHand = cribbageHandParser.parse("5♥5♦5♠5♣A♠");
-        Card[] expectedHandCards = {
+    void withHandCardsFiveOfEachSuiteAndStarterCardAceOfSpades() {
+        List<Card> expectedHandCards = Arrays.asList(
                 new Card(Rank.FIVE, '♥'),
                 new Card(Rank.FIVE, '♦'),
                 new Card(Rank.FIVE, '♠'),
                 new Card(Rank.FIVE, '♣')
-        };
-        assertArrayEquals(expectedHandCards, cribbageHand.handCards());
+        );
+        CribbageHand expectedHand = new CribbageHand(expectedHandCards, new Card(Rank.ACE, '♠'));
+        CribbageHand cribbageHand = cribbageHandParser.parse("5♥5♦5♠5♣A♠");
+        assertEquals(expectedHand, cribbageHand);
     }
 
     @Test
-    void withHandCardsThreeOfEachSuite() {
-        CribbageHand cribbageHand = cribbageHandParser.parse("3♥3♦3♠3♣A♠");
-        Card[] expectedHandCards = {
+    void withHandCardsThreeOfEachSuiteAndStarterCardAceOfSpades() {
+        List<Card> expectedHandCards = Arrays.asList(
                 new Card(Rank.THREE, '♥'),
                 new Card(Rank.THREE, '♦'),
                 new Card(Rank.THREE, '♠'),
                 new Card(Rank.THREE, '♣')
-        };
-        assertArrayEquals(expectedHandCards, cribbageHand.handCards());
+        );
+        CribbageHand expectedHand = new CribbageHand(expectedHandCards, new Card(Rank.ACE, '♠'));
+        CribbageHand cribbageHand = cribbageHandParser.parse("3♥3♦3♠3♣A♠");
+        assertEquals(expectedHand, cribbageHand);
     }
 
     @Test
     void withHandCardsAceOfEachSuiteAndStarterCardKingOfHearts() {
-        CribbageHand cribbageHand = cribbageHandParser.parse("A♥A♦A♠A♣K♥");
         CribbageHand expectedHand = new CribbageHand(
                 Arrays.asList(
                         new Card(Rank.ACE, '♥'),
@@ -62,6 +52,7 @@ public class ParseCribbageHand {
                 ),
                 new Card(Rank.KING, '♥')
         );
+        CribbageHand cribbageHand = cribbageHandParser.parse("A♥A♦A♠A♣K♥");
         assertEquals(expectedHand, cribbageHand);
     }
 }

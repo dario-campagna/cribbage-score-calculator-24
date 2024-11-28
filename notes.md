@@ -9,10 +9,6 @@
     - Each rank corresponds to a numeric value
     - Well-defined set of values for rank and suite
 
-# Notes
-
-- Do we really need the getters in CribbageHand and Card, now that we implemented equals?
-
 # Tests
 
 - "5♥5♦5♠J♣5♣" -> print "29"
