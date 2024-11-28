@@ -3,6 +3,7 @@ package sdm.running.example;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import sdm.running.example.card.Rank;
 
 import java.util.stream.Stream;
 

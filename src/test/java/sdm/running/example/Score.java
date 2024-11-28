@@ -1,6 +1,12 @@
 package sdm.running.example;
 
 import org.junit.jupiter.api.Test;
+import sdm.running.example.card.Card;
+import sdm.running.example.card.Rank;
+import sdm.running.example.rules.ScoreForFifteenTwos;
+import sdm.running.example.rules.ScoreForFlush;
+import sdm.running.example.rules.ScoreForNobs;
+import sdm.running.example.rules.ScoreForPairs;
 
 import java.util.Arrays;
 
@@ -8,7 +14,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Score {
 
-    private final CribbageScore cribbageScore = new CribbageScore();
+    private final CribbageScore cribbageScore = new CribbageScore(Arrays.asList(
+            new ScoreForPairs(),
+            new ScoreForFlush(),
+            new ScoreForNobs(),
+            new ScoreForFifteenTwos()
+    ));
 
     @Test
     void oneForTheNobs() {

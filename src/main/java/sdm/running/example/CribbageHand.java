@@ -1,6 +1,8 @@
 package sdm.running.example;
 
 import org.paukov.combinatorics3.Generator;
+import sdm.running.example.card.Card;
+import sdm.running.example.card.Rank;
 
 import java.util.ArrayList;
 import java.util.List;

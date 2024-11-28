@@ -1,4 +1,7 @@
-package sdm.running.example;
+package sdm.running.example.parse;
+
+import sdm.running.example.card.Card;
+import sdm.running.example.CribbageHand;
 
 import java.util.ArrayList;
 import java.util.List;

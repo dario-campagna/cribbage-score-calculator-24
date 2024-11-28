@@ -1,4 +1,4 @@
-package sdm.running.example;
+package sdm.running.example.card;
 
 public enum Rank {
     ACE(1), 

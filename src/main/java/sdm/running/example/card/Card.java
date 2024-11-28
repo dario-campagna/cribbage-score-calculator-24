@@ -1,4 +1,4 @@
-package sdm.running.example;
+package sdm.running.example.card;
 
 public class Card {
     private final Character suite;

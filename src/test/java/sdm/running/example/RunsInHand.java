@@ -2,6 +2,8 @@ package sdm.running.example;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import sdm.running.example.card.Card;
+import sdm.running.example.card.Rank;
 
 import java.util.Arrays;
 
