@@ -23,6 +23,10 @@ jar {
     manifest {
         attributes('Main-Class': 'sdm.running.example.Main')
     }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
 
 tasks.withType(JavaCompile).configureEach {
