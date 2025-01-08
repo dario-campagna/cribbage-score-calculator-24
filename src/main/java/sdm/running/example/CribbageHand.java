@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CribbageHand {
+    
     private final List<Card> handCards;
     private final Card starterCard;
 
@@ -21,8 +22,28 @@ public class CribbageHand {
         return handCards.stream().anyMatch(card -> card.hasSameRankAs(jack) && card.hasSameSuiteAs(starterCard));
     }
 
-    public int runsOfFour() {
-        return 0;
+    public long runsOfThree() {
+        List<Card> allCards = getAllCards();
+        return Generator.subset(allCards).simple().stream()
+                .filter(
+                        cardCombination -> cardCombination.size() == 3 && isRun(cardCombination)
+                ).count();
+    }
+
+    public long runsOfFour() {
+        List<Card> allCards = getAllCards();
+        return Generator.subset(allCards).simple().stream()
+                .filter(
+                        cardCombination -> cardCombination.size() == 4 && isRun(cardCombination)
+                ).count();
+    }
+
+    public long runOfFive() {
+        List<Card> allCards = getAllCards();
+        return Generator.subset(allCards).simple().stream()
+                .filter(
+                        cardCombination -> cardCombination.size() == 5 && isRun(cardCombination)
+                ).count();
     }
 
     public long fifteenTwos() {
@@ -49,14 +70,24 @@ public class CribbageHand {
         return allCards.stream().allMatch(card -> card.hasSameSuiteAs(allCards.get(0)));
     }
 
-    private static int sumOf(List<Card> cardCombination) {
-        return cardCombination.stream().mapToInt(Card::value).sum();
-    }
-
     private List<Card> getAllCards() {
         List<Card> allCards = new ArrayList<>(handCards);
         allCards.add(starterCard);
         return allCards;
+    }
+
+    private boolean isRun(List<Card> cardCombination) {
+        cardCombination.sort(Card::compareTo);
+        for (int i = 0; i < cardCombination.size() - 1; i++) {
+            if (cardCombination.get(i).compareTo(cardCombination.get(i + 1)) != -1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static int sumOf(List<Card> cardCombination) {
+        return cardCombination.stream().mapToInt(Card::value).sum();
     }
 
     @Override

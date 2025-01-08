@@ -1,6 +1,6 @@
 package sdm.running.example.card;
 
-public class Card {
+public class Card implements Comparable<Card> {
     private final Character suite;
     private final Rank rank;
     
@@ -39,5 +39,10 @@ public class Card {
     @Override
     public String toString() {
         return "" + rank + suite;
+    }
+
+    @Override
+    public int compareTo(Card otherCard) {
+        return this.rank.compareTo(otherCard.rank);
     }
 }

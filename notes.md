@@ -51,9 +51,9 @@ Fifteen-twos
 Runs
 
 - 0♦J♥Q♠A♣9♦ -> score is 4
-  - 0♦J♥Q♠A♣9♦ -> one run of four
+  - ~~0♦J♥Q♠A♣9♦ -> one run of four~~
 - 0♠5♠4♠7♣3♥ -> score is 3
-  - 0♠5♠4♠7♣3♥ -> a run of three
+  - ~~0♠5♠4♠7♣3♥ -> a run of three~~
 - 5♠4♠2♠6♥3♥ -> score is 6
-  - - 5♠4♠2♠6♥3♥ -> double run of three
+  - ~~5♠4♠2♠6♥3♥ -> a run of five~~
 
