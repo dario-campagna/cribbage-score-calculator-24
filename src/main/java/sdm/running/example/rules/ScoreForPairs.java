@@ -6,6 +6,6 @@ import sdm.running.example.ScoringRule;
 public class ScoreForPairs implements ScoringRule {
     @Override
     public long applyTo(CribbageHand hand) {
-        return 2 * hand.getNumberOfPairs();
+        return 2 * hand.numberOfPairs();
     }
 }

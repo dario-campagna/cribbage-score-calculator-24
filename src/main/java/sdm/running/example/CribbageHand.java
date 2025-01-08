@@ -33,11 +33,7 @@ public class CribbageHand {
                 ).count();
     }
 
-    private static int sumOf(List<Card> cardCombination) {
-        return cardCombination.stream().mapToInt(Card::value).sum();
-    }
-
-    public long getNumberOfPairs() {
+    public long numberOfPairs() {
         List<Card> allCards = getAllCards();
         return Generator.combination(allCards).simple(2).stream().filter(
                 cards -> cards.get(0).hasSameRankAs(cards.get(1))
@@ -51,6 +47,10 @@ public class CribbageHand {
     public boolean hasCardsOfSameSuite() {
         List<Card> allCards = getAllCards();
         return allCards.stream().allMatch(card -> card.hasSameSuiteAs(allCards.get(0)));
+    }
+
+    private static int sumOf(List<Card> cardCombination) {
+        return cardCombination.stream().mapToInt(Card::value).sum();
     }
 
     private List<Card> getAllCards() {

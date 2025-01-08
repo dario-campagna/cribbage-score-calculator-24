@@ -3,7 +3,8 @@ package sdm.running.example;
 public class Main {
 
     public static void main(String... args) {
-        System.out.println("Not implemented yet.");
+        CribbageScoreCalculator calculator = new CribbageScoreCalculator(score -> System.out.println(score));
+        calculator.showScoreFor(args[0]);
     }
     
 }

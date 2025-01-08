@@ -21,7 +21,7 @@ public class CribbagePairs {
                 ),
         new Card(Rank.FIVE, '♣')
         );
-        assertEquals(1, hand.getNumberOfPairs());
+        assertEquals(1, hand.numberOfPairs());
     }
 
     @Test
@@ -35,7 +35,7 @@ public class CribbagePairs {
                 ),
                 new Card(Rank.FIVE, '♣')
         );
-        assertEquals(3, hand.getNumberOfPairs());
+        assertEquals(3, hand.numberOfPairs());
     }
 
     @Test
@@ -49,6 +49,6 @@ public class CribbagePairs {
                 ),
                 new Card(Rank.THREE, '♣')
         );
-        assertEquals(6, hand.getNumberOfPairs());
+        assertEquals(6, hand.numberOfPairs());
     }
 }
