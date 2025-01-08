@@ -16,7 +16,13 @@ public class Show {
 
     @Test
     void score4() {
-        calculator.showScoreFor("0♥J♥K♥A♥9♦");
+        calculator.showScoreFor("0♥J♥K♥A♥8♦");
         Mockito.verify(display).show(4);
+    }
+    
+    @Test
+    void score12() {
+        calculator.showScoreFor("5♠4♠2♠6♥5♥");
+        Mockito.verify(display).show(12);
     }
 }

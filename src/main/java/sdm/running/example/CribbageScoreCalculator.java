@@ -1,10 +1,7 @@
 package sdm.running.example;
 
 import sdm.running.example.parse.CribbageHandParser;
-import sdm.running.example.rules.ScoreForFifteenTwos;
-import sdm.running.example.rules.ScoreForFlush;
-import sdm.running.example.rules.ScoreForNobs;
-import sdm.running.example.rules.ScoreForPairs;
+import sdm.running.example.rules.*;
 
 import java.util.Arrays;
 
@@ -15,7 +12,8 @@ public class CribbageScoreCalculator {
             new ScoreForFifteenTwos(),
             new ScoreForFlush(),
             new ScoreForPairs(),
-            new ScoreForNobs()
+            new ScoreForNobs(),
+            new ScoreForRuns()
     ));
 
     public CribbageScoreCalculator(Display display) {

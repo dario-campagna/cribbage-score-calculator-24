@@ -3,10 +3,7 @@ package sdm.running.example;
 import org.junit.jupiter.api.Test;
 import sdm.running.example.card.Card;
 import sdm.running.example.card.Rank;
-import sdm.running.example.rules.ScoreForFifteenTwos;
-import sdm.running.example.rules.ScoreForFlush;
-import sdm.running.example.rules.ScoreForNobs;
-import sdm.running.example.rules.ScoreForPairs;
+import sdm.running.example.rules.*;
 
 import java.util.Arrays;
 
@@ -18,7 +15,8 @@ public class Score {
             new ScoreForPairs(),
             new ScoreForFlush(),
             new ScoreForNobs(),
-            new ScoreForFifteenTwos()
+            new ScoreForFifteenTwos(),
+            new ScoreForRuns()
     ));
 
     @Test
@@ -131,5 +129,61 @@ public class Score {
                 new Card(Rank.FIVE, '♣')
         );
         assertEquals(29, cribbageScore.of(hand));
+    }
+
+    @Test
+    void sevenFor2FifteenTwosAndARunOfFour() {
+        CribbageHand hand = new CribbageHand(
+                Arrays.asList(
+                        new Card(Rank.TEN, '♠'),
+                        new Card(Rank.FIVE, '♠'),
+                        new Card(Rank.FOUR, '♠'),
+                        new Card(Rank.SEVEN, '♣')
+                ),
+                new Card(Rank.THREE, '♥')
+        );
+        assertEquals(7, cribbageScore.of(hand));
+    }
+
+    @Test
+    void twelveFor2FifteenTwosAPairAnd2RunsOfThree() {
+        CribbageHand hand = new CribbageHand(
+                Arrays.asList(
+                        new Card(Rank.FIVE, '♠'),
+                        new Card(Rank.FOUR, '♠'),
+                        new Card(Rank.TWO, '♠'),
+                        new Card(Rank.SIX, '♥')
+                ),
+                new Card(Rank.FIVE, '♥')
+        );
+        assertEquals(12, cribbageScore.of(hand));
+    }
+
+    @Test
+    void nineFor2FifteenTwosARunOfFourAndTheNob() {
+        CribbageHand hand = new CribbageHand(
+                Arrays.asList(
+                        new Card(Rank.SIX, '♦'),
+                        new Card(Rank.JACK, '♥'),
+                        new Card(Rank.FOUR, '♥'),
+                        new Card(Rank.SEVEN, '♣')
+                ),
+                new Card(Rank.FIVE, '♥')
+        );
+        assertEquals(9, cribbageScore.of(hand));
+    }
+    
+    @Test
+    void nineFor2FifteenTwosAndARunOfFive() {
+        CribbageHand hand = new CribbageHand(
+                Arrays.asList(
+                        new Card(Rank.FIVE, '♠'),
+                        new Card(Rank.FOUR, '♠'),
+                        new Card(Rank.TWO, '♠'),
+                        new Card(Rank.SIX, '♥')
+                ),
+                new Card(Rank.THREE, '♥')
+        );
+        assertEquals(9, cribbageScore.of(hand));
     }
 }

@@ -78,6 +78,6 @@ public class RunsInHand {
                 ),
                 new Card(Rank.THREE, '♥')
         );
-        assertEquals(1, hand.runOfFive());
+        assertTrue(hand.isRunOfFive());
     }
 }

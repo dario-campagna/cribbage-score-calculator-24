@@ -38,12 +38,9 @@ public class CribbageHand {
                 ).count();
     }
 
-    public long runOfFive() {
+    public boolean isRunOfFive() {
         List<Card> allCards = getAllCards();
-        return Generator.subset(allCards).simple().stream()
-                .filter(
-                        cardCombination -> cardCombination.size() == 5 && isRun(cardCombination)
-                ).count();
+        return isRun(allCards);
     }
 
     public long fifteenTwos() {

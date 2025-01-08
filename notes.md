@@ -12,7 +12,7 @@
 # Tests
 
 - ~~"5♥5♦5♠J♣5♣" -> print "29"~~
-- ~~"0♦J♥Q♠A♣9♦" -> print "4"~~
+- ~~"0♦J♥Q♠A♣8♦" -> print "4"~~
 - ~~5♥5♦5♠J♣5♣ -> score is 29~~
 - ~~"5♥5♦5♠J♣5♣" -> four hand cards (five of Hearts,...) and a starter card (five of Clubs)~~
 - ~~"5♥5♦5♠J♣5♣" -> five of Clubs is the starter card~~
