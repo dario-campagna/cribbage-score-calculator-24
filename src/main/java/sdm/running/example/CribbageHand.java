@@ -39,8 +39,7 @@ public class CribbageHand {
     }
 
     public boolean isRunOfFive() {
-        List<Card> allCards = getAllCards();
-        return isRun(allCards);
+        return isRun(getAllCards());
     }
 
     public long fifteenTwos() {
@@ -59,11 +58,14 @@ public class CribbageHand {
     }
 
     public boolean isFlush() {
-        return handCards.stream().allMatch(card -> card.hasSameSuiteAs(handCards.get(0)));
+        return allCardsHaveSameSuite(handCards);
     }
 
     public boolean hasCardsOfSameSuite() {
-        List<Card> allCards = getAllCards();
+        return allCardsHaveSameSuite(getAllCards());
+    }
+
+    private static boolean allCardsHaveSameSuite(List<Card> allCards) {
         return allCards.stream().allMatch(card -> card.hasSameSuiteAs(allCards.get(0)));
     }
 

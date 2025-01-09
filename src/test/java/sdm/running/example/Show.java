@@ -25,4 +25,5 @@ public class Show {
         calculator.showScoreFor("5♠4♠2♠6♥5♥");
         Mockito.verify(display).show(12);
     }
+    
 }
